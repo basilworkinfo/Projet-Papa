@@ -1,0 +1,293 @@
+@font-face {
+  font-family: "slogan";
+  src: url(../fonts/BarberChop.otf);
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 9vh;
+  background: linear-gradient(to right, #212121, #333333);
+  color: #eeeeee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+              rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+
+.logo {
+  font-family: "slogan";
+  font-size: 40px;
+  font-weight: 500;
+  text-align: center;
+  margin: 0 auto;
+  color: white;
+}
+
+#nav-container {
+  position: fixed;
+  z-index: 9999;
+  height: 100vh;
+  width: 100%;
+  pointer-events: none;
+}
+
+.button {
+  position: absolute;
+  top: 0;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 70px;
+  width: 30px;
+  cursor: pointer;
+  pointer-events: auto;
+  background: transparent;
+  border: none;
+}
+
+.icon-bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  background: #aaa;
+  transition: 0.3s;
+  margin-top: 5px;
+}
+
+#nav-content {
+  margin-top: 70px;
+  padding: 20px;
+  width: 90%;
+  max-width: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: calc(100vh - 70px);
+  background: #dbeaff;
+  pointer-events: auto;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  box-shadow: 5px 0 10px rgba(0,0,0,0.1);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#nav-content ul {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+#nav-content li a {
+  padding: 10px 5px;
+  text-transform: uppercase;
+  display: block;
+  padding-left: 10px;
+  color: #000;
+}
+
+#nav-content li a:hover {
+  color: #0139b1;
+}
+
+.active {
+  border-left: #0139b1 4px solid;
+}
+
+#nav-container.open #nav-content {
+  transform: translateX(0);
+}
+
+#nav-container.open .icon-bar:nth-of-type(1) {
+  transform: translate3d(0,8px,0) rotate(45deg);
+}
+
+#nav-container.open .icon-bar:nth-of-type(2) {
+  opacity: 0;
+}
+
+#nav-container.open .icon-bar:nth-of-type(3) {
+  transform: translate3d(0,-8px,0) rotate(-45deg);
+}
+
+#nav-container::before {
+  content: "";
+  position: absolute;
+  top: 70px;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+#nav-container.open::before {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+main {
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#connexion,
+#inscription {
+  width: 100%;
+  max-width: 500px;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.input-container label {
+  pointer-events: none;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease-in-out;
+}
+
+.input-container input {
+  z-index: 10;
+  border: 0;
+  border-bottom: 1px solid #555;
+  background: transparent;
+  width: 100%;
+  padding: 8px 0 5px 0;
+  font-size: 16px;
+  color: #212121;
+}
+
+.input-container input:focus {
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #0139b1;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label {
+  top: -12px;
+  font-size: 12px;
+  color: #0139b1;
+}
+
+.btn {
+  color: #fff;
+  background-color: #0139b1;
+  outline: none;
+  border: 0;
+  padding: 10px 20px;
+  text-transform: uppercase;
+  margin-top: 30px;
+  border-radius: 2px;
+  cursor: pointer;
+  position: relative;
+  transition: 0.2s all;
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn:hover {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 
+              0 3px 1px -2px rgba(0,0,0,0.12), 
+              0 1px 5px 0 rgba(0,0,0,0.2);
+  background-color: #01329b;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Responsive - tablettes */
+@media screen and (max-width: 1024px) {
+  #nav-content {
+    width: 70%;
+  }
+
+  .logo {
+    font-size: 32px;
+  }
+}
+
+/* Responsive - téléphones */
+@media screen and (max-width: 767px) {
+  #nav-content {
+    width: 80%;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+
+  #nav-content li a {
+    font-size: 18px;
+    padding: 14px 10px;
+  }
+}
+
+/* Responsive - petits téléphones */
+@media screen and (max-width: 480px) {
+  .input-container input {
+    font-size: 14px;
+  }
+
+  .input-container label {
+    font-size: 14px;
+  }
+
+  .btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  #connexion, #inscription {
+    margin-top: 80px;
+    padding: 0 10px;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+}

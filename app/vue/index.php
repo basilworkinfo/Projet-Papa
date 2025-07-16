@@ -25,6 +25,7 @@
   <div id="nav-content">
     <ul>
       <li><a href="index.php" class="active">Accueil</a></li>
+      <li><a href="compte.php">Connection</a></li>
     </ul>
   </div>
 </div>
